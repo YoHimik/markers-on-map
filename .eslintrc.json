@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "ignorePatterns": ["next.config.js"],
+  "extends": [
+    "airbnb-typescript"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.tsx"
+      ],
+      "rules": {
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off",
+        "max-len": [
+          "error",
+          120
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "rules": {
+        "import/prefer-default-export": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}

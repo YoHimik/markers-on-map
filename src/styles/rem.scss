@@ -1,0 +1,26 @@
+$pixelBase: 16;
+
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+@function rem($values) {
+  $result: ();
+
+  @each $value in $values {
+    @if (type-of($value) == "number") and ($value != 0) {
+      $unit: unit($value);
+      $val: parseInt($value);
+
+      @if ($unit == 'px') {
+        $result: append($result, $val / $pixelBase * 1rem);
+      } @else {
+        $result: append($result, $value);
+      }
+    } @else {
+      $result: append($result, $value);
+    }
+  }
+
+  @return $result;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "markers-on-map",
+  "version": "0.0.0",
+  "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "eslint": "./node_modules/eslint/bin/eslint.js src pages"
+  },
+  "dependencies": {
+    "@material-ui/core": "4.11.4",
+    "clsx": "1.1.1",
+    "mapbox-gl": "2.3.1",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "1.35.1"
+  },
+  "devDependencies": {
+    "@types/mapbox-gl": "^2.3.0",
+    "@types/node": "^15.12.5",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.3"
+  }
+}
