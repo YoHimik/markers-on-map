@@ -1,20 +1,43 @@
 import React, {
-  FC, ReactElement, ReactNode, useState,
+  FC,
+  ReactElement,
+  ReactNode,
+  useState,
 } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, Theme, ThemeProvider } from '@material-ui/core/styles';
 import { Language } from '../const/language';
 
 const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#19857b',
+    },
+    error: {
+      main: '#ea7f7f',
+    },
+    background: {
+      default: '#fff',
+    },
+    text: {
+      primary: '#212121',
+      secondary: '#fff',
+    },
+  },
   overrides: {
   },
 });
 
 type AppSettingsContextValue = {
   language: Language,
+  theme: Theme,
 };
 
 export const AppSettingsContext = React.createContext<AppSettingsContextValue>({
   language: Language.En,
+  theme,
 });
 
 type AppSettingsContextProviderProps = {
@@ -25,10 +48,10 @@ export const AppSettingsContextProvider: FC<AppSettingsContextProviderProps> = (
   const { children } = props;
 
   const [language] = useState<Language>(Language.En);
-
   return (
     <AppSettingsContext.Provider value={{
       language,
+      theme,
     }}
     >
       <ThemeProvider theme={theme}>

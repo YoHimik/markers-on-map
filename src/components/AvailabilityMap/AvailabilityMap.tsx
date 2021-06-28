@@ -1,13 +1,22 @@
 import React, {
   FC,
-  ReactElement,
+  ReactElement, useContext,
 } from 'react';
 import { Map } from '../common/Map';
 import styles from './AvailabilityMap.module.scss';
+import { MapContext } from '../../contexts/MapContext';
 
 type AvailabilityMapProps = {
 };
 
-export const AvailabilityMap: FC<AvailabilityMapProps> = (): ReactElement => (
-  <Map center={[30, 59]} zoom={9} className={styles.map} />
-);
+export const AvailabilityMap: FC<AvailabilityMapProps> = (): ReactElement => {
+  const { userLocation, stationsPoints } = useContext(MapContext);
+
+  return (
+    <Map
+      center={userLocation}
+      className={styles.map}
+      points={stationsPoints}
+    />
+  );
+};
