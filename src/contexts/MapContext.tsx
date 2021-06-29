@@ -16,11 +16,14 @@ type MapContextValue = {
   userLocation?: UserLocation,
   stations: Station[],
   stationsPoints: MapPoint[],
+  selectedStation?: Station,
+  selectStation: (id: string) => void,
 };
 
 export const MapContext = React.createContext<MapContextValue>({
   stations: [],
   stationsPoints: [],
+  selectStation: () => {},
 });
 
 type MapContextProviderProps = {
@@ -68,12 +71,21 @@ export const MapContextProvider: FC<MapContextProviderProps> = (props): ReactEle
     return res;
   }, []), [stations]);
 
+  const [selectedStationId, setSelectedStationId] = useState<string>();
+  const selectedStation = useMemo(() => {
+    if (!selectedStationId) return undefined;
+
+    return stations.find((s) => s.station_id === selectedStationId);
+  }, [selectedStationId, stations]);
+
   return (
     <MapContext.Provider
       value={{
         userLocation,
         stations,
         stationsPoints,
+        selectedStation,
+        selectStation: setSelectedStationId,
       }}
     >
       {children}

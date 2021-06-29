@@ -1,3 +1,5 @@
 {
-  "projectName": "Markers on map"
+  "projectName": "Markers on map",
+  "bikesAvailableLabel": "Bikes available",
+  "docksAvailableLabel": "Docks available"
 }

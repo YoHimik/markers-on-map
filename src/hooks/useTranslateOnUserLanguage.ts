@@ -6,6 +6,8 @@ import commonEn from '../translates/en/common.json';
 
 type CommonTranslate = {
   projectName: string,
+  bikesAvailableLabel: string,
+  docksAvailableLabel: string,
 };
 
 export function useCommonTranslate():CommonTranslate {

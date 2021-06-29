@@ -151,17 +151,25 @@ const MapSSR: FC<MapProps> = (props): ReactElement => {
         });
       });
 
-      mapRef?.current?.on('click', 'unclustered-point', (ev) => {
-        const position = ev?.features?.[0]?.geometry?.type === 'Point'
-          ? ev.features[0].geometry.coordinates
+      mapRef?.current?.on('click', () => {
+        if (!onPointClick) return;
+        onPointClick({
+          coordinates: [0, 0],
+          properties: {},
+        });
+      });
+
+      mapRef?.current?.on('click', 'unclustered-point', (e) => {
+        const position = e?.features?.[0]?.geometry?.type === 'Point'
+          ? e.features[0].geometry.coordinates
           : null;
         if (!position) return;
 
-        const coordinates: UserLocation = [position[0], position[1]];
+        const coordinates: UserLocation = [position[1], position[0]];
         if (onPointClick) {
           onPointClick({
             coordinates,
-            properties: ev?.features?.[0]?.properties || {},
+            properties: e?.features?.[0]?.properties || {},
           });
         }
         mapRef?.current?.easeTo({
