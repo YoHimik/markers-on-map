@@ -9,6 +9,7 @@ import { Station } from '../src/api/dtos';
 import { MapContextProvider } from '../src/contexts/MapContext';
 import { UserLocation } from '../src/types/common';
 import { LATITUDE_COOKIE_NAME, LONGITUDE_COOKIE_NAME } from '../src/const/cookies';
+import { UserDock } from '../src/components/UserDock';
 
 type IndexPageProps = {
   userLocation?: UserLocation,
@@ -28,6 +29,7 @@ const IndexPage: FC<IndexPageProps> = (props): ReactElement => {
         stations={stations}
       >
         <AvailabilityMap />
+        <UserDock />
       </MapContextProvider>
     </>
   );

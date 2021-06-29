@@ -8,6 +8,11 @@ type CommonTranslate = {
   projectName: string,
   bikesAvailableLabel: string,
   docksAvailableLabel: string,
+  mapLabel: string,
+  vehicleLabel: string,
+  jobsLabel: string,
+  zonesLabel: string,
+  crewLabel: string,
 };
 
 export function useCommonTranslate():CommonTranslate {

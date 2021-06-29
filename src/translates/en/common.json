@@ -1,5 +1,10 @@
 {
   "projectName": "Markers on map",
   "bikesAvailableLabel": "Bikes available",
-  "docksAvailableLabel": "Docks available"
+  "docksAvailableLabel": "Docks available",
+  "mapLabel": "Map",
+  "vehicleLabel": "Vehicle",
+  "jobsLabel": "Jobs",
+  "zonesLabel": "Zones",
+  "crewLabel": "Crew"
 }
